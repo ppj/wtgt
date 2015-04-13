@@ -9,6 +9,7 @@ gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'pg'
 gem 'mysql2'
+gem 'bootstrap-sass'
 
 group :development do
   gem 'better_errors'
