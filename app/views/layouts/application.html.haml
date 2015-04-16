@@ -8,11 +8,12 @@
     = stylesheet_link_tag "application"
     = javascript_include_tag "application"
   %body
-    %header
-      = render 'shared/header'
-    %section.content.clearfix
-      = render 'shared/messages'
-      = yield
-    %footer
-      &copy 2015 WTGT
+    .container
+      %header
+        = render 'shared/header'
+      %section.content.clearfix
+        = render 'shared/messages'
+        = yield
+      %footer
+        %p.text-muted &copy 2015 WTGT
 

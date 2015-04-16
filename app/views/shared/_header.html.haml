@@ -1,14 +1,14 @@
-%section#top-header.row
-  %h1.col-md-2
-    = link_to "WTGT",
-    #user_links.pull-right
-      %ul
-        %li.dropdown
-          %a(href="#" id="dlabel" role="button" data-toggle="dropdown" class="dropdown-toggle" data-target="#")
-            Welcome, Bob
-            %b.caret
-          %ul.dropdown-menu(role="menu" aria-labelledby="dlabel")
-            %li
-              %a(href="#") Account
-              %a(href="#") Plan and Billing
-              =link_to "Sign Out"
+%nav.navbar.navbar-default.navbar-fixed-top
+  .container-fluid
+    = link_to "WTGT", "#", class: "navbar-brand"
+    %ul.nav.navbar-nav.navbar-right
+      %li.dropdown
+        %a.dropdown-toggle#dlabel(href="#" data-toggle="dropdown" role="button" aria-expanded="false" data-target="#")
+          Welcome, Bob
+          %b.caret
+        %ul.dropdown-menu(role="menu" aria-labelledby="dlabel")
+          %li
+            %a(href="#") Account
+            %a(href="#") Plan and Billing
+            =link_to "Sign Out"
+
