@@ -1,5 +1,5 @@
 class DestinationsController < ApplicationController
   def index
-    @destinations = Destination.all
+    @destinations = Destination.order("updated_at DESC")
   end
 end
