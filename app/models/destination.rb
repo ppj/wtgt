@@ -1,4 +1,6 @@
 class Destination < ActiveRecord::Base
-  has_one :place
+  belongs_to :place
   validates_presence_of :place_id
+
+  delegate :name, to: :place
 end
