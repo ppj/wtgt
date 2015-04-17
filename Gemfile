@@ -10,6 +10,7 @@ gem 'jquery-rails'
 gem 'pg'
 gem 'mysql2'
 gem 'bootstrap-sass'
+gem 'bcrypt'
 
 group :development do
   gem 'better_errors'
