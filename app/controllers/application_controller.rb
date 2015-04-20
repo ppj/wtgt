@@ -12,4 +12,13 @@ class ApplicationController < ActionController::Base
   def current_user
     User.find(session[:user_id]) if session[:user_id]
   end
+
+  def require_user
+    access_denied 'This action is reserved for registered users only. Please sign in/up.' unless logged_in?
+  end
+
+  def access_denied(msg)
+    flash[:info] = msg
+    redirect_to root_path
+  end
 end
