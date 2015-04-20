@@ -1,6 +1,6 @@
 %nav.navbar.navbar-default.navbar-fixed-top
   .container-fluid
-    = link_to "WTGT", "#", class: "navbar-brand"
+    = link_to "WTGT", root_path, class: "navbar-brand"
     -if logged_in?
       %ul.nav.navbar-nav.navbar-right
         %li.dropdown
@@ -11,5 +11,5 @@
                 %li
                   %a(href="#") Account
               %a(href="#") Plan and Billing
-              =link_to "Sign Out"
+              =link_to "Sign Out", sign_out_path, method: :delete
 

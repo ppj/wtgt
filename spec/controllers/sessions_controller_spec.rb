@@ -38,4 +38,24 @@ describe SessionsController do
       end
     end
   end
+
+  describe "DELETE destroy" do
+    let(:bob) { Fabricate :user }
+    before do
+      set_current_user bob
+      delete :destroy
+    end
+
+    it "redirects to the front page" do
+      expect(response).to redirect_to root_path
+    end
+
+    it "signs the user out of the session" do
+      expect(session[:user_id]).to be_nil
+    end
+
+    it "displays a logged-out message" do
+      expect(flash[:success]).to be_present
+    end
+  end
 end

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :destinations
 
   get :sign_in, to: 'sessions#new'
+  delete :sign_out, to: 'sessions#destroy'
 
   resources :sessions, only: [:create]
 
