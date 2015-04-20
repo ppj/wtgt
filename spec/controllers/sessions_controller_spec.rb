@@ -1,9 +1,7 @@
 describe SessionsController do
   describe "GET new" do
-    it "redirects to destinations path if already signed in" do
-      set_current_user
-      get :new
-      expect(response).to redirect_to(destinations_path)
+    it_behaves_like "the boss" do
+      let(:action) { get :new }
     end
   end
 
