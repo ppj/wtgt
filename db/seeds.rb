@@ -5,8 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+bob = User.create(fullname: "Ukulfukt Strafen", email: "he@hu.ho", password: "pwd", hometown: "flumbenberg", country: "Krauteny")
 place1 = Place.create(name: "Pune", country: "India")
 place2 = Place.create(name: "Melbourne", country: "Australia")
-destination1 = Destination.create(category: "International", place: place1)
-destination2 = Destination.create(category: "Local", place: place2)
+destination1 = bob.destinations.create(category: "International", place: place1)
+destination2 = bob.destinations.create(category: "Local", place: place2)
 
