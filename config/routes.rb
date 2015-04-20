@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
+  root to: 'pages#front'
   resources :destinations
+
+  get :sign_in, to: 'sessions#new'
+
+  resources :sessions, only: [:create]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
