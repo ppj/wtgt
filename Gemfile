@@ -1,16 +1,15 @@
 source 'https://rubygems.org'
 
-
 gem 'rails', '4.2.0'
 gem 'sass-rails'
 gem 'haml-rails'
 gem 'uglifier'
 gem 'coffee-rails'
 gem 'jquery-rails'
-gem 'pg'
 gem 'mysql2'
 gem 'bootstrap-sass'
 gem 'bcrypt'
+gem 'bootstrap_form'
 
 group :development do
   gem 'better_errors'
