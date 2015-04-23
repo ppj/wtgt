@@ -9,11 +9,8 @@
     = javascript_include_tag "application"
   %body
     .container
-      %header
+      %header.clearfix
         = render 'shared/header'
-      %section.content.clearfix
-        = render 'shared/messages'
-        = yield
-      %footer
-        %p.text-muted &copy 2015 WTGT
-
+      = render 'shared/messages'
+      = yield
+    = render 'shared/footer'

@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:success] = "Account created successfully! Please sign in."
-      redirect_to sign_in_path
+      redirect_to root_path
     else
       flash.now[:danger] = "Please fix the errors below before trying again."
       render :new

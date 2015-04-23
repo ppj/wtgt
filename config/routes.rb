@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   root to: 'pages#front'
   resources :destinations
 
-  get :sign_in, to: 'sessions#new'
   delete :sign_out, to: 'sessions#destroy'
   get :sign_up, to: 'users#new'
 
