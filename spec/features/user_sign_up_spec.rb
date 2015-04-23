@@ -1,7 +1,7 @@
 feature "User Signs Up" do
   scenario "with new credentials" do
     visit root_path
-    click_on "Sign Up Now!"
+    click_on "sign-up-button"
 
     fill_in "Email Address", with: "heeho@hum.com"
     fill_in "Full Name", with: "Bobble Gum"

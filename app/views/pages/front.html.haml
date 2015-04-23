@@ -1,9 +1,11 @@
-.section.site_title
+.jumbotron
   %h1
-    Start creating your wishlist for travel destinations right now!
-    = link_to "Sign Up Now!", sign_up_path
-  %p.sign_up
-  %p.sign_in
-    Have an account? Please
-    = link_to "Sign In", sign_in_path
-
+    Want to go there?
+  %p.lead
+    Wishlist your travel destinations right now!
+%p
+  .text-center
+    = link_to sign_up_path, id: "sign-up-button", class: "btn btn-success btn-lg", role: "button" do
+      %h4
+        %span.glyphicon.glyphicon-hand-right
+        Sign Up & Get Started!

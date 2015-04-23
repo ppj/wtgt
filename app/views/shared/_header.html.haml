@@ -1,15 +1,28 @@
 %nav.navbar.navbar-default.navbar-fixed-top
   .container-fluid
     = link_to "WTGT", root_path, class: "navbar-brand"
-    -if logged_in?
-      %ul.nav.navbar-nav.navbar-right
+    %ul.nav.navbar-nav.navbar-right
+      -if logged_in?
         %li.dropdown
           %a.dropdown-toggle#dlabel(href="#" data-toggle="dropdown" role="button" aria-expanded="false" data-target="#")
-            Welcome, #{current_user.fullname}
+            = current_user.fullname
             %b.caret
-              %ul.dropdown-menu(role="menu" aria-labelledby="dlabel")
-                %li
-                  %a(href="#") Account
-              %a(href="#") Plan and Billing
-              =link_to "Sign Out", sign_out_path, method: :delete
-
+          %ul.dropdown-menu(role="menu" aria-labelledby="dlabel")
+            %li
+              =link_to "#" do
+                %span.glyphicon.glyphicon-user(aria-hidden="true")
+                Account
+              =link_to "#" do
+                %span.glyphicon.glyphicon-edit(aria-hidden="true")
+                Plan and Billing
+              =link_to sign_out_path, method: :delete do
+                %span.glyphicon.glyphicon-log-out(aria-hidden="true")
+                Sign Out
+      -else
+        %li
+          = form_tag sessions_path, class: 'navbar-form navbar-left', role: 'form' do
+            .form-group
+              = email_field_tag :email, params[:email] || '', class: 'form-control', placeholder: 'your e-mail'
+            .form-group
+              = password_field_tag :password, params[:password] || '', class: 'form-control', placeholder: 'password'
+            = submit_tag "Sign In", class: 'btn btn-primary'
