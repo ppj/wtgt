@@ -9,12 +9,9 @@
             %b.caret
           %ul.dropdown-menu(role="menu" aria-labelledby="dlabel")
             %li
-              =link_to "#" do
+              =link_to profile_path do
                 %span.glyphicon.glyphicon-user(aria-hidden="true")
                 Account
-              =link_to "#" do
-                %span.glyphicon.glyphicon-edit(aria-hidden="true")
-                Plan and Billing
               =link_to sign_out_path, method: :delete do
                 %span.glyphicon.glyphicon-log-out(aria-hidden="true")
                 Sign Out
