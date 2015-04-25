@@ -1,0 +1,14 @@
+%header
+  %h2 Profile
+.well
+  %dl.dl-horizontal
+    %dt Name:
+    %dd= @user.fullname
+    %dt Email:
+    %dd= @user.email
+    %dt Hometown:
+    %dd= @user.hometown
+    %dt Country:
+    %dd= @user.country
+  -if current_user
+    =link_to "Edit", "/edit_profile", class: "btn btn-primary"

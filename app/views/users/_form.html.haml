@@ -1,0 +1,11 @@
+= bootstrap_form_for @user, control_col: 'col-sm-6' do |f|
+  - submit_text = @user.new_record? ? "Sign Up" : "Update"
+  %fieldset
+    = f.email_field    :email, label: 'Email Address'
+    = f.password_field :password
+    = f.text_field     :fullname, label: 'Full Name'
+    = f.text_field     :hometown
+    = f.text_field     :country
+  %fieldset.actions.control-group
+    .controls
+      = f.submit submit_text
