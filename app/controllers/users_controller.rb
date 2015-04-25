@@ -26,8 +26,10 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
+      flash[:success] = "Profile updated successfully."
       redirect_to profile_path
     else
+      flash.now[:danger] = "Please fix the errors below:"
       render :edit
     end
   end

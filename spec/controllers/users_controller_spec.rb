@@ -79,25 +79,46 @@ describe UsersController do
   describe "POST update" do
     let(:bob) { Fabricate :user }
 
+    it_behaves_like "a security guard" do
+      let(:action) { post :update, id: bob.id, user: bob.attributes }
+    end
+
     context "with valid inputs" do
-      before do
-        set_current_user bob
-      end
+      before { set_current_user bob }
 
       it "redirects to profile page" do
         post :update, id: bob.id, user: bob.attributes
         expect(response).to redirect_to profile_path
       end
 
-      it "updates users attributes"
-      it "displays a flash success message"
+      it "updates users attributes" do
+        email = Faker::Internet.email
+        city  = Faker::Address.city
+        country = Faker::Address.country
+        post :update, id: bob.id, user: {email: email, hometown: city, country: country}
+        expect(bob.reload.email).to eq(email)
+        expect(bob.hometown).to eq(city)
+        expect(bob.country).to eq(country)
+      end
+
+      it "displays a flash success message" do
+        post :update, id: bob.id, user: bob.attributes
+        expect(flash[:success]).to be_present
+      end
     end
 
     context "with invalid inputs" do
-      let(:jane) { Fabricate :user }
+      before { set_current_user bob }
 
-      it "re-renders the edit form"
-      it "displays a flash error message"
+      it "re-renders the edit form" do
+        post :update, id: bob.id, user: {email: nil}
+        expect(response).to render_template :edit
+      end
+
+      it "displays a flash error message" do
+        post :update, id: bob.id, user: {email: Fabricate(:user).email}
+        expect(flash[:danger]).to be_present
+      end
     end
   end
 end
