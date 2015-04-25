@@ -1,28 +1,13 @@
-== README
+A web app to wishlist destinations a user may want to travel to in future.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Heroku: [Not deployed yet]
 
-Things you may want to cover:
+Primarily a project to practice TDD in Ruby on Rails.
 
-* Ruby version
+* Rails 4.2.0
+* Ruby 2.2.0
+* MySql
+* Twitter Bootstrap (bootstrap-sass 3.3.4)
+* RSpec 3.2.1
+* Capybara 2.4.4
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
