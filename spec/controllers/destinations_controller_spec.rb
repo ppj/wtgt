@@ -21,4 +21,20 @@ describe DestinationsController do
       expect(assigns(:destinations)).to_not include(destination3)
     end
   end
+
+  describe "GET new" do
+    it_behaves_like "a security guard" do
+      let(:action) { get :new }
+    end
+
+    context "with a signed in user" do
+      let(:bob) { Fabricate :user }
+      before { set_current_user bob }
+
+      it "sets @destination to a new Destination record" do
+        get :new
+        expect(assigns(:destination)).to be_a_new(Destination)
+      end
+    end
+  end
 end
