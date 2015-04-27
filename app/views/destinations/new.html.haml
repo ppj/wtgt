@@ -5,6 +5,9 @@
     - submit_text = @destination.new_record? ? "Add" : "Update"
     %fieldset
       = f.text_field :category
+      = f.fields_for :place do |place_form|
+        = place_form.text_field :name
+        = place_form.text_field :country
       = f.check_box  :visited
     %fieldset.actions.control-group
       .controls

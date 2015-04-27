@@ -6,5 +6,7 @@ feature "Add destination to wishlist" do
     click_on "Add Destination"
     fill_in "Category", with: "Leisure"
     check "Visited"
+    fill_in "Name", with: "Melbourne"
+    fill_in "Country", with: "Australia"
   end
 end
