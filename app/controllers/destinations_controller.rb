@@ -10,8 +10,7 @@ class DestinationsController < ApplicationController
   end
 
   def create
-    @place = Place.find_by(name: params[:destination][:place][:name], country: params[:destination][:place][:country])
-    @place ||= Place.new(place_params)
+    @place = place_for_destination
     @place.save if @place.new_record?
     @destination = current_user.destinations.new(destination_params)
     @destination.place = @place
@@ -19,7 +18,7 @@ class DestinationsController < ApplicationController
       flash[:success] = "Added destination to your wishlist!"
       redirect_to destinations_path
     else
-      flash.now[:danger] = "Place inputs seem to have error(s)"
+      flash.now[:danger] = "Place input(s) seem to have some error(s)"
       render :new
     end
   end
@@ -32,5 +31,10 @@ class DestinationsController < ApplicationController
 
   def destination_params
     params.require(:destination).permit(:category, :visited)
+  end
+
+  def place_for_destination
+    place = Place.find_by(name: params[:destination][:place][:name], country: params[:destination][:place][:country])
+    place ||= Place.new(place_params)
   end
 end
