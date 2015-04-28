@@ -107,4 +107,12 @@ describe DestinationsController do
       end
     end
   end
+
+  describe "GET edit" do
+    let(:bob) { Fabricate :user }
+    let(:destination) { Fabricate :destination, user: bob }
+    it_behaves_like "a security guard" do
+      let(:action) { get :edit, id: destination.id }
+    end
+  end
 end

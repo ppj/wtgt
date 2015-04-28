@@ -23,6 +23,10 @@ class DestinationsController < ApplicationController
     end
   end
 
+  def edit
+
+  end
+
   private
 
   def place_params
