@@ -6,4 +6,5 @@ class Destination < ActiveRecord::Base
   validates_uniqueness_of :place_id, scope: :user_id
 
   delegate :name, to: :place
+  delegate :country, to: :place
 end

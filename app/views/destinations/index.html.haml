@@ -1,5 +1,5 @@
 %h4 Destinations:
 %ul
   - @destinations.each do |destination|
-    %li= destination.name
+    %li= destination.name + " (Country: " + destination.country + ")"
 = link_to "Add Destination", new_destination_path, class: "btn btn-primary"

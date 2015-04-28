@@ -11,4 +11,11 @@ describe Destination do
       expect(destination.name).to eq(destination.place.name)
     end
   end
+
+  describe "#country" do
+    it "returns the country of the place" do
+      destination = Fabricate(:destination, user: Fabricate(:user))
+      expect(destination.country).to eq(destination.place.country)
+    end
+  end
 end
