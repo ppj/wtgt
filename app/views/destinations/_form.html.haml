@@ -1,8 +1,8 @@
-= bootstrap_form_for @destination, url: destinations_path, method: 'post', control_col: 'col-sm-6' do |f|
+= bootstrap_form_for @destination, control_col: 'col-sm-6' do |f|
   - submit_text = @destination.new_record? ? "Add" : "Update"
   %fieldset
     = f.text_field :category
-    = f.fields_for :place, @place do |place_form|
+    = f.fields_for :place, @destination.place do |place_form|
       = place_form.text_field :name
       = place_form.text_field :country
     = f.check_box  :visited

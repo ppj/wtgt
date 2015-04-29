@@ -12,6 +12,7 @@ feature "Edit a destination" do
     fill_in "Name", with: "Mumbai"
     check "Visited"
     click_on "Update"
+    expect_to_find "Mumbai (Country: India)"
   end
 end
 

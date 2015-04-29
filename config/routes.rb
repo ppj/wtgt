@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: 'pages#front'
-  resources :destinations, only: [:index, :new, :create, :edit]
+  resources :destinations, except: [:show, :destroy]
 
   delete :sign_out, to: 'sessions#destroy'
   get :sign_up, to: 'users#new'
