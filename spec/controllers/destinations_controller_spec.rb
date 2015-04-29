@@ -111,8 +111,15 @@ describe DestinationsController do
   describe "GET edit" do
     let(:bob) { Fabricate :user }
     let(:destination) { Fabricate :destination, user: bob }
+    before { set_current_user bob }
+
     it_behaves_like "a security guard" do
       let(:action) { get :edit, id: destination.id }
+    end
+
+    it "assigns @destination to the destination to be updated" do
+      get :edit, id: destination.id
+      expect(assigns(:destination)).to eq(destination)
     end
   end
 end

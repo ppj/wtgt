@@ -9,6 +9,9 @@ feature "Edit a destination" do
   scenario "user can edit a destination already in his/her wishlist" do
     visit destinations_path
     click_on "Pune (Country: India)"
+    fill_in "Name", with: "Mumbai"
+    check "Visited"
+    click_on "Update"
   end
 end
 
