@@ -10,6 +10,7 @@ gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'bcrypt'
 gem 'bootstrap_form'
+gem 'mysql2'
 
 group :development do
   gem 'better_errors'
@@ -21,7 +22,6 @@ group :development, :test do
   # gem 'byebug'
   gem 'pry'
   gem 'rspec-rails'
-  gem 'mysql2'
 end
 
 group :test do
@@ -34,6 +34,5 @@ group :test do
 end
 
 group :production do
-  gem 'pg'
   gem 'rails_12factor'
 end
