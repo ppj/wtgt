@@ -1,6 +1,7 @@
 class DestinationsController < ApplicationController
   before_action :require_user
   before_action :set_destination, only: [:edit, :update]
+  before_action :match_user, only: [:update]
 
   def index
     @destinations = current_user.destinations
@@ -57,5 +58,9 @@ class DestinationsController < ApplicationController
 
   def set_destination
     @destination = Destination.find(params[:id])
+  end
+
+  def match_user
+    access_denied "You are not authorized to do that." unless @destination.user == current_user
   end
 end

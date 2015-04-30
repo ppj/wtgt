@@ -178,6 +178,14 @@ describe DestinationsController do
           expect(destination.reload.place).to_not eq(place)
         end
 
+        it "does not update a destination that doesn't belong to the current user" do
+          jane = Fabricate :user
+          destination2 = Fabricate :destination, user: jane
+          post :update, destination: {category: "test", place: {name: "new city", country: "Australia"}, visited: false}, id: destination2.id
+          expect(destination2.reload.place.name).to_not eq("new city")
+          expect(response).to redirect_to root_path
+        end
+
         it "displays an error message" do
           post :update, destination: {category: "test", place: {name: nil, country: "India"}, visited: false}, id: destination.id
           expect(flash[:danger]).to be_present
@@ -190,5 +198,4 @@ describe DestinationsController do
       end
     end
   end
-
 end
