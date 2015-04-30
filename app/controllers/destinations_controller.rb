@@ -1,5 +1,7 @@
 class DestinationsController < ApplicationController
   before_action :require_user
+  before_action :set_destination, only: [:edit, :update]
+  before_action :match_user, only: [:update]
 
   def index
     @destinations = current_user.destinations
@@ -23,6 +25,22 @@ class DestinationsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @place = place_for_destination
+    @place.save if @place.new_record?
+    @destination.place = @place
+    if @destination.update(destination_params)
+      flash[:success] = "Destination updated successfully."
+      redirect_to destinations_path
+    else
+      flash.now[:danger] = "Couldn't update the destination."
+      render :edit
+    end
+  end
+
   private
 
   def place_params
@@ -36,5 +54,13 @@ class DestinationsController < ApplicationController
   def place_for_destination
     place = Place.find_by(name: params[:destination][:place][:name], country: params[:destination][:place][:country])
     place ||= Place.new(place_params)
+  end
+
+  def set_destination
+    @destination = Destination.find(params[:id])
+  end
+
+  def match_user
+    access_denied "You are not authorized to do that." unless @destination.user == current_user
   end
 end
