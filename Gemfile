@@ -7,7 +7,6 @@ gem 'haml-rails'
 gem 'uglifier'
 gem 'coffee-rails'
 gem 'jquery-rails'
-gem 'mysql2'
 gem 'bootstrap-sass'
 gem 'bcrypt'
 gem 'bootstrap_form'
@@ -22,6 +21,7 @@ group :development, :test do
   # gem 'byebug'
   gem 'pry'
   gem 'rspec-rails'
+  gem 'mysql2'
 end
 
 group :test do
@@ -31,4 +31,8 @@ group :test do
   gem 'faker'
   gem 'capybara'
   gem 'launchy'
+end
+
+group :production do
+  gem 'pg'
 end
